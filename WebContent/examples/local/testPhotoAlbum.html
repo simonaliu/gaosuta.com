@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<form action="local/photoAlbum/findById.do" method="post">
+		<label>测试相册查询</label> <br/>
+		albumId<input type="text" name="id" /><br/>
+		<input type="submit" value="FIND" />
+	</form>
+	
+	<form action="local/photoAlbum/insert.do" >
+		<label>测试相册插入</label> <br/>
+		<label>Title</label><input type="text" name="title" /> <br/>
+		<label>Description</label><input type="text" name="description" /> <br/>
+		<label></label><input type="submit" value="INSERT" />
+	</form>
+	
+	<form action="local/photoAlbum/update.do" method="post">
+		<label>测试相册更新</label>
+		albumId<input type="text" name="id" /> <br/>
+		title<input type="text" name="title" /> <br/>
+		description <input type="text" name="description" /> <br/>
+		<input type="submit" value="UPDATE" />
+	</form>
+	
+	<form action="local/photoAlbum/delete.do" method="post" >
+		<label>测试相册删除</label> <br/>
+		albumId<input type="text" name="id" /><br/>
+		<input type="submit" value="DELETE" />
+	</form>
+</body>
+</html>

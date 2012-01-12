@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[2.7.2.201109122348-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>src/org/varkrs/sociality/beans.xml</config>
+		<config>src/org/varkrs/sociality/local/beans.xml</config>
+		<config>src/org/varkrs/sociality/common/beans.xml</config>
+		<config>src/org/varkrs/sociality/local/web/beans.xml</config>
+		<config>src/org/varkrs/sociality/local/jpa/beans.xml</config>
+		<config>src/org/varkrs/sociality/local/business/beans.xml</config>
+		<config>src/org/varkrs/sociality/local/business/password/beans.xml</config>
+		<config>src/org/varkrs/sociality/local/business/resources/beans.xml</config>
+		<config>src/org/varkrs/sociality/common/web/configurations/beans.xml</config>
+	</configs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

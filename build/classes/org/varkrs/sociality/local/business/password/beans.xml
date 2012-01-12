@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="passwordTranslator" 
+		class="org.varkrs.sociality.local.business.password.StandardPasswordTranslator" 
+		scope="singleton">
+		<description>明文密码转换为加密形式的标准实现</description>
+		<property name="encoder">
+			<bean class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"></bean>
+		</property>
+		<property name="key" value="fdsg0f93_r34F3+34FDc-$FD%"></property>
+	</bean>
+	
+	<bean id="temporaryTokenGenerator" 
+		class="org.varkrs.sociality.local.business.password.StandardTokenGenerator"
+		scope="singleton">
+		<description>客户端临时Token的生成器</description>
+		<property name="translator" ref="passwordTranslator">
+		</property>
+	</bean>
+
+</beans>
