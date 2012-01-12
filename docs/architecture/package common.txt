@@ -1,0 +1,8 @@
+这里顺带提一下org.varkrs.sociality.local包下的配置文件: beans.xml, 这里有一个配置服务器域名的内容, 如果域名更改了, 就要修改其中的信息. 
+
+common包主要是一些配置系统, 其中beanfactories子包是Spring IOC bean工厂的寻找地, 不要主动去实例化它, 从这里寻找吧. 所有的bean工厂都是在WEB-INF/appliContext.xml下面配置的. 目前local项目的bean工厂已经可以从getLocalApplicationContext中得到了. 
+
+configuration包可以找到一些关于项目信息的内容, 请看具体的JAVADOC. 
+
+然后三个子包(web.exception, web.initial, web.view)是关于Spring MVC配置的依赖类, 具体信息可以查看相应的配置文件spring-servlet.xml和spring-views.xml(都在WEB-INF)下. 
+

@@ -1,0 +1,56 @@
+前缀皆为: local/photo/
+
+根据ID查看图片: 任何人都有查看照片的权限. 
+URL: findById.do
+Params: id: long---
+Return: state:int--- 0:成功; -1和其他: 未知错误;
+    photo:{
+        title: String, 
+        description: String, 
+        url: String, 
+        previewUrl: String, 
+        photoAlbum: PhotoAlbum(请参看相册json格式)
+    }
+    
+获取某相册的分页图片列表: 任何人都有查看权限
+URL: findListByPhotoAlbumId.do
+参数: 
+    photoAlbumId: long,
+    pageNum: int, 
+    pageCapacity: int
+返回: 
+    state:int --- 0:成功; -1和其他: 未知错误;
+    photos[]: {
+        title: String, 
+        description: String, 
+        url: String, 
+        previewUrl: String, 
+    }
+    
+插入图片: 需要登录. 
+URL: insert.do
+参数: 
+    photoAlbumId: long, 
+    title: String, 
+    description: String, 
+    file: File, ---这个与上传的文件进行关联. 
+返回: state: int--- 0:成功; -2: 未登录; -3: 未授权; -1和其他: 未知错误. 
+        id: long---刚刚插入的图片ID
+    
+更新图片(未实现): 需要登录. 如果不是属于自己的资源, 也不可更新. 
+URL: update.do
+参数: 
+    title: String, 
+    description: String, 
+    file: File----这个与上传的文件进行关联
+返回: state: int--- 0:成功; -2: 未登录; -3: 未授权; -1和其他: 未知错误. 
+    
+删除图片: 需要登录. 如果不是属于自己的资源, 也不可更新. 
+URL: delete.do
+参数: 
+    id: long.
+返回: 
+    state: int--- 0:成功; -2: 未登录; -3: 未授权; -1和其他: 未知错误. 
+
+    
+

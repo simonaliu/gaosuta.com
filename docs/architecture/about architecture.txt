@@ -1,0 +1,21 @@
+新版的项目后台代码以org.varkrs.sociality为根包, 每个子项目都有一个子根包, 例如本地子项目的根包名为local. 
+
+其中后台数据库主要由JPA实现, 因此与JPA绑定的很紧. 其所有代码都在名为org.varkrs.sociality.local.jpa的包以及子包下. 
+其中org.varkrs.sociality.local.jpa.entities包下主要是实体定义. 
+其中org.varkrs.sociality.local.jpa.dao包下主要是数据访问DAO接口. 
+其中org.varkrs.sociality.local.jpa.dao.impl包下主要是DAO接口的参考实现. 
+
+整个项目与Spring绑定也很紧. 几乎每个包下都有一个beans.xml的Spring配置文件(不管用不用得着). 
+前端MVC框架主要采用Spring MVC. 具体参看配置文件(在WEB-INF目录下): web.xml, spring-servlet.xml, spring-views.xml, applicationContext.xml. 
+
+每个子项目都有一个统一的ApplicationContext(Spring的bean工厂), 这在applicationContext.xml里进行配置. 不同的子项目拥有不同的Bean工厂, 例如本地子项目和人人子项目就会拥有不同的Bean工厂(其他关于子项目的讨论类似). 
+
+现在说一下前端控制器部分. 这里采用的Spring MVC仅仅只使用了其中基于注解的配置方式, 而且视图仅仅是json的返回格式, 这意味着前端仅仅采用AJAX一种与后台交互的技术即可(也只能用这种技术). 
+
+下面说一下org.varkrs.sociality.local.web包的情况. 
+其中controllers子包是标注@Controller注解的Spring控制器部分. 里面的代码都是简单而直接的, 应该很容易就能读懂. 
+
+org.varkrs.sociality.local.business包是web包下各类可能用到的工具类. 
+其中password子包是将处理关于如何将明文密码转换为加密形式的内容. 
+
+另外org.varkrs.sociality.common包是公共属性的配置部分, 也就是说, 所有子项目都有可能用到. 

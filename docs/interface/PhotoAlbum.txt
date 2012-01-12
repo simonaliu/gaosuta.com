@@ -1,0 +1,58 @@
+前缀皆为: local/photoAlbum/
+
+根据ID查看相册: 任何人都有查看相册的权限. 
+URL: findById.do
+参数:
+    id: long. 
+返回: 
+    state:int --- 0:成功; -1和其他: 未知错误(基本上是资源不存在);
+    photoAlbum: {
+        title:String, 
+        description: String, 
+        generateTime: long, 
+        lastModified: long, 
+    }
+    
+获取某用户的分页相册列表: 任何人都有查看权限
+url: findListByUserId.do
+参数:
+    userId: long, 
+    pageNum: int, 
+    pageCapacity: int
+返回: state:int---
+    photoAlbums[]: {
+        title:String, 
+        description: String, 
+        generateTime: long, 
+        lastModified: long, 
+    }
+    
+设置用户的工作相册: 需要登录. 如果所设置的工作相册不是属于该用户, 设置将会失败. 
+URL: setWork.do
+参数: id: long---新工作相册ID. 
+返回: state:int--- 0:成功; -2: 未登录; -3: 未授权; -1和其他: 未知错误. 
+    
+插入相册: 需要登录. 
+URL: insert.do
+参数: 
+    title: String, 
+    description:String, 
+返回: 
+    state:int---0:成功; -2: 未登录; -3: 未授权; -1和其他: 未知错误. 
+    id: long---刚刚插入的相册ID.
+    
+更新相册: 需要登录. 如果不是属于自己的资源, 也不可更新. 
+URL: update.do
+参数: 
+    id: int---
+    title: String, 
+    description: String
+返回: 
+    state:int---0:成功; -2: 未登录; -3: 未授权; -1和其他: 未知错误. 
+    
+删除相册: 需要登录. 如果不是属于自己的资源, 也不可更新. 
+URL: delete.do
+参数: 
+    id: iny
+返回: 
+    state: int---0:成功; -2: 未登录; -3: 未授权; -1和其他: 未知错误. 

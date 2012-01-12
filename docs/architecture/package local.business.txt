@@ -1,0 +1,11 @@
+全称: org.varkrs.sociality.local.business
+
+这个是一些工具包和配置包, 以后写人人项目的时候可能还用得着. 
+
+password子包下是关于明文如何转化为加密形式的介绍. 
+
+photos下面主要是两个内容, 一个是如何从MultipartFile导出流(InputStream, 以便获取内容), 一个是如何将MultipartFile(必须图片)导出一个流(InputStream), 这个流是将图片转化为缩略图以后的结果. 
+
+resources子包下主要是关于项目资源的问题. 这个包主要是处理各种不同表示的路径问题, 如数据库中存储的路径, 这个数据库存储的值对应到本地文件系统的路径是什么, 这个数据库存储的路径被Internet应用时它的URL怎样表示.云云. 
+
+具体内容可以参看JAVADOC.
