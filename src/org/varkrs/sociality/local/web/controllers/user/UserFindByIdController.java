@@ -3,7 +3,6 @@ package org.varkrs.sociality.local.web.controllers.user;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,7 +18,7 @@ import org.varkrs.sociality.local.web.controllers.utils.StateUtils;
 public class UserFindByIdController extends BaseViewAuthorityController {
 
 	@RequestMapping
-	public ModelAndView doRequest(@ModelAttribute(SessionConstants.VIEW_AUTHORITY_ID) Object viewAuthorityId, 
+	public ModelAndView doRequest(
 			HttpSession session, long id) {
 		UserDAO dao = getDAOFactory().getUserDAO();
 		User user = dao.findById(id);
