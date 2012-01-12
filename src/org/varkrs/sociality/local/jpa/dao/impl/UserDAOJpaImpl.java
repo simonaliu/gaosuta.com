@@ -228,13 +228,11 @@ public class UserDAOJpaImpl implements UserDAO {
 				@Override
 				public User doInJpa(EntityManager arg0)
 						throws PersistenceException {
-					final String QueryString ="select user from User user where user.userName=:userName";
-					TypedQuery<User> query=arg0.createQuery(QueryString,User.class);
+					final String QueryString ="select user from User user where user.login.userName=:userName";
+					TypedQuery<User> query=arg0.createQuery(QueryString, User.class);
 					query.setParameter("userName", userName);
-					User user=query.getSingleResult();
-//					user.setPhotoAlbums(null);
-//					user.setRecords(null);
-					return user;
+					List<User> users = query.getResultList();
+					return (users.size() == 1)?users.get(0):null;
 					
 					}
 				
