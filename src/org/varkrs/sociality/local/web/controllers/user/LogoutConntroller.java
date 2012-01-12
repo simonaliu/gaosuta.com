@@ -16,7 +16,6 @@ public class LogoutConntroller extends BaseLocalController {
 	public ModelAndView doRequest(HttpSession session) {
 		ModelAndView mv = getModelAndView();
 		session.removeAttribute(SessionConstants.USER_ID);
-		session.removeAttribute(SessionConstants.VIEW_AUTHORITY_ID);
 		return mv;
 	}
 	

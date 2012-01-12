@@ -7,9 +7,24 @@
 <body>
 
 <form action="local/viewAuthority/new.do">
-	<label> 测试新建一个查看权限</label>
+	<label>测试新建一个查看权限</label> <br/>
 	Description: <input type="text" name="description" /> <br/>
+	Password:    <input type="text" name="password"> <br/>
 	<input type="submit" value="新建" />
+</form>
+
+<form action="local/viewAuthority/requestToken.do">
+	<label>测试请求一个临时Token</label> <br/>
+	AuthorityID: <input type="text" name="id" /> <br/>
+	password: <input type="text" name="password" /> <br/>
+	<input type="submit" value="Request" />
+</form>
+
+<form action="local/viewAuthority/requestAuthority.do">
+	<label>测试请求查看资源的权限</label> <br/>
+	AuthorityID: <input type="text" name="id" /> <br/>
+	Password: <input type="text" name="token" /> <br/>
+	<input type="submit" value="Request" />
 </form>
 
 </body>

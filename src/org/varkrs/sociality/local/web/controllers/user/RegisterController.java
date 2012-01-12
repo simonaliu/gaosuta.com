@@ -26,7 +26,7 @@ public class RegisterController extends BaseLoginController {
 		ModelAndView mv = getModelAndView();
 		UserDAO userDAO = getDAOFactory().getUserDAO();
 		Login login = new Login(userName, encodeCleartext(password));
-		if(userDAO.findByLogin(login) != null) {
+		if(userDAO.findByUserName(userName) != null) {
 			mv.addObject(Constants.STATE, USER_EXISTS);
 			return mv;
 		}

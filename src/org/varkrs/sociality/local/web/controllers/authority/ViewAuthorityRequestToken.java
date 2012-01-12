@@ -2,6 +2,7 @@ package org.varkrs.sociality.local.web.controllers.authority;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.varkrs.sociality.local.business.password.TokenGenerator;
 import org.varkrs.sociality.local.jpa.dao.ViewAuthorityDAO;
@@ -14,7 +15,7 @@ import org.varkrs.sociality.local.web.controllers.utils.StateUtils;
 public class ViewAuthorityRequestToken extends BaseViewAuthorityController {
 
 	@RequestMapping
-	public ModelAndView doRequest(long viewAuthorityId, String password, String clientSalt) {
+	public ModelAndView doRequest(@RequestParam("id") long viewAuthorityId, String password, String clientSalt) {
 		ViewAuthority authority = getViewAuthority(viewAuthorityId);
 		ModelAndView mv = getModelAndView();
 		if(authority == null) {
