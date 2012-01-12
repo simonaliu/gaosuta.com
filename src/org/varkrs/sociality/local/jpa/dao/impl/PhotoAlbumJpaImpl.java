@@ -97,19 +97,18 @@ public class PhotoAlbumJpaImpl implements PhotoAlbumDAO {
 			return template.execute(new JpaCallback<Boolean>() {
 
 				@Override
-				public Boolean doInJpa(EntityManager arg0)
+				public Boolean doInJpa(EntityManager em)
 						throws PersistenceException {
-					arg0.getTransaction().begin();
-					PhotoAlbum managed = arg0.merge(photoAlbum);
-					arg0.remove(managed);
-					arg0.getTransaction().commit();
+					em.getTransaction().begin();
+					PhotoAlbum managed = em.find(PhotoAlbum.class, photoAlbum.getId());
+					em.remove(managed);
+					em.getTransaction().commit();
 
 					return true;
 				}
 
 			});
 		} catch (DataAccessException ex) {
-
 			ex.printStackTrace();
 			return false;
 		}
