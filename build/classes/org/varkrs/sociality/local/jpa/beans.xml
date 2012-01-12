@@ -9,8 +9,18 @@
 	
 	<bean id="jpaTemplateFactory" class="org.varkrs.sociality.local.jpa.JpaTemplateFactory" scope="singleton">
 		<description>JpaTemplate生成工厂</description>
+		<property name="EMFFactory" ref="simpleEMFFactory"></property>
 	</bean>
-
+	
+	<bean id="simpleEMFFactory" class="org.varkrs.sociality.local.jpa.SimpleEMFFactory" scope="singleton" >
+		<description>简单的EMFFactory实现</description>
+	</bean>
+	
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<description>JPA中的EntityManagerFactory定义</description>
+		<property name="persistenceUnitName" value="local"></property>
+	</bean>
+	
 	<import resource="classpath:org/varkrs/sociality/local/jpa/dao/beans.xml"/>
 	
 </beans>
