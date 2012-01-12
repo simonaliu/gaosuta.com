@@ -22,7 +22,9 @@ public class RecordDeleteController extends BaseLocalController {
 		RecordDAO dao = getDAOFactory().getRecordDAO();
 		ModelAndView mv = getModelAndView();
 		Record record = dao.findById(id);
-		if(!userId.equals(record.getUser().getId())) 
+		if(record == null)
+			StateUtils.setUnknowError(mv);
+		else if(!userId.equals(record.getUser().getId())) 
 			StateUtils.setUnauthorized(mv);
 		else if(dao.delete(record))
 			StateUtils.setSuccess(mv);

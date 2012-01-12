@@ -11,8 +11,9 @@ public class BaseViewAuthorityController extends BaseLocalController {
 	protected boolean resourcePermited(HttpSession session, Object userId) {
 		Object userIdInSession = session.getAttribute(SessionConstants.USER_ID);
 		if(userIdInSession != null && userIdInSession.equals(userId)) {
+			//就是登录用户自己的资源
 			return true;
-		} else {
+		} else { 
 			Object viewAuthorityIdInSession = session.getAttribute(SessionConstants.VIEW_AUTHORITY_ID);
 			if(viewAuthorityIdInSession == null)
 				return false;

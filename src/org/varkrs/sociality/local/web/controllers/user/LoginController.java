@@ -26,7 +26,6 @@ public class LoginController extends BaseLoginController {
 		if (user != null) {
 			mv.addObject(Constants.STATE, StateCodes.SUCCESS);
 			mv.addObject(SessionConstants.USER_ID, user.getId());
-			mv.addObject(SessionConstants.VIEW_AUTHORITY_ID, 0L);
 		} else
 			mv.addObject(Constants.STATE, StateCodes.UNKNOW_ERROR);
 		

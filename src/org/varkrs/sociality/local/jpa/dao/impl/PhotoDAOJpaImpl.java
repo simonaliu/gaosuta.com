@@ -97,12 +97,14 @@ public class PhotoDAOJpaImpl implements PhotoDAO {
 			return template.execute(new JpaCallback<Boolean>(){
 
 				@Override
-				public Boolean doInJpa(EntityManager arg0)
+				public Boolean doInJpa(EntityManager em)
 						throws PersistenceException {
-					arg0.getTransaction().begin();
-					Photo managedPhoto = arg0.merge(photo);
-					arg0.remove(managedPhoto);
-					arg0.getTransaction().commit();
+					em.getTransaction().begin();
+					
+//					Photo managedPhoto = em.merge(photo);
+					Photo managedPhoto = em.find(Photo.class, photo.getId());
+					em.remove(managedPhoto);
+					em.getTransaction().commit();
 					return true;
 				}
 				

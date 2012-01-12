@@ -31,7 +31,7 @@ public class ViewAuthorityRequestAuthorityController extends BaseViewAuthorityCo
 		else {
 			authority.setToken(null);	//Token用过, 置为null.
 			ViewAuthorityDAO dao = getDAOFactory().getViewAuthorityDAO();
-			if(dao.update(authority))	//更新Authority, 即清除Token列
+			if(!dao.update(authority))	//更新Authority, 即清除Token列
 				return StateUtils.setUnknowError(mv);
 			mv.addObject(SessionConstants.VIEW_AUTHORITY_ID, authority.getId());	//加入缓存
 			return StateUtils.setSuccess(mv);

@@ -22,7 +22,9 @@ public class PhotoAlbumDeleteController extends BaseLocalController {
 		PhotoAlbumDAO dao = getDAOFactory().getPhotoAlbumDAO();
 		PhotoAlbum photoAlbum = dao.findById(id);
 		ModelAndView mv = getModelAndView();
-		if(!userId.equals(photoAlbum.getUser().getId()))
+		if(photoAlbum == null)
+			return StateUtils.setUnknowError(mv);
+		else if(!userId.equals(photoAlbum.getUser().getId()))
 			return StateUtils.setUnauthorized(mv);
 		else if(dao.delete(photoAlbum))
 			return StateUtils.setSuccess(mv);

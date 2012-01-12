@@ -46,8 +46,6 @@ public class ViewAuthorityJpaImpl implements ViewAuthorityDAO {
 			return template.execute(new JpaCallback<Long>() {
 				@Override
 				public Long doInJpa(EntityManager em) throws PersistenceException {
-					if(authority.getId() == null)
-						return null;
 					em.getTransaction().begin();
 					ViewAuthority mergedAuthority = em.merge(authority);
 					em.getTransaction().commit();
