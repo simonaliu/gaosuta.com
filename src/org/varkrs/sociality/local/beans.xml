@@ -15,7 +15,7 @@
 		<!-- 协议啊 -->
 		<property name="protocal" value="http"></property>
 		<!-- 域名啊 -->
-		<property name="domainName" value="localhost"></property>
+		<property name="domainName" value="localhost:8080"></property>
 	</bean>
 
 </beans>

@@ -14,7 +14,7 @@ import org.varkrs.sociality.common.web.configurations.ProjectWebContext;
 public class ResourceUtils {
 	
 	public static File relativeResourcesDir() {
-		return new File("META-INF/resources/");
+		return new File("resources/");
 	}
 	
 	public static String absoluteFilePathOfProjectRelativePath(String relativePath) {

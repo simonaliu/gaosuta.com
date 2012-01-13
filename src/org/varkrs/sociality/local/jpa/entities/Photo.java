@@ -85,10 +85,6 @@ public class Photo implements Serializable{
 		this.url = url;
 	}
 
-	public String getImage() {
-		return url;
-	}
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
