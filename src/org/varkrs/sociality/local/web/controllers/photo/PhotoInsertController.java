@@ -36,7 +36,7 @@ public class PhotoInsertController extends BaseUserController {
 			@ModelAttribute(SessionConstants.USER_ID) Long userId,
 			long photoAlbumId, String title, String description,
 			@RequestParam(required = false) MultipartFile file) throws IOException {
-
+		
 		response.setContentType("text/plain");
 		ModelAndView mv = getModelAndView();
 		
@@ -101,8 +101,11 @@ public class PhotoInsertController extends BaseUserController {
 			return mv;
 		} else
 			return StateUtils.setUnknowError(mv);
-		
-		
+	}
+	
+	protected static ModelAndView getModelAndView() {
+//		return BaseLocalController.getModelAndView();
+		return new ModelAndView("json-but-text-view");
 	}
 
 }

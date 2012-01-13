@@ -12,5 +12,7 @@
 	<bean name="json-view" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">
 		<description>Ajax类型的View</description>
 	</bean>
+	
+	<bean name="json-but-text-view" class="org.varkrs.sociality.common.web.view.JsonButTextView"></bean>
 
 </beans>
