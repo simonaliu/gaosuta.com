@@ -45,6 +45,7 @@ $(function(){
 				// console.log(msg);
 				 if(msg==0){
 			 	//alert("登录成功");
+				  writeCookie('username', $('#email').val(), 10000);
 			      window.location="home.html";
 				 }
 			 else{
