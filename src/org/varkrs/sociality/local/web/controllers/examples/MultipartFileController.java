@@ -10,7 +10,8 @@ import org.springframework.web.multipart.MultipartFile;
 public class MultipartFileController {
 
 	@RequestMapping
-	public String doRequest(@RequestParam(required=false)MultipartFile file) {
+	public String doRequest(@RequestParam(value="file") MultipartFile file) {
+		System.out.println("init");
 		System.out.println(file);
 		return "default-view";
 	}

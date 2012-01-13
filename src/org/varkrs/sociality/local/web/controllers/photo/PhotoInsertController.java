@@ -3,6 +3,8 @@ package org.varkrs.sociality.local.web.controllers.photo;
 import java.io.File;
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletResponse;
+
 import net.coobird.thumbnailator.Thumbnails;
 
 import org.springframework.stereotype.Controller;
@@ -30,10 +32,12 @@ import org.varkrs.sociality.local.web.controllers.utils.StateUtils;
 public class PhotoInsertController extends BaseUserController {
 
 	@RequestMapping
-	public ModelAndView doRequest(
+	public ModelAndView doRequest(HttpServletResponse response, 
 			@ModelAttribute(SessionConstants.USER_ID) Long userId,
 			long photoAlbumId, String title, String description,
 			@RequestParam(required = false) MultipartFile file) throws IOException {
+
+		response.setContentType("text/plain");
 		ModelAndView mv = getModelAndView();
 		
 		/*根据指定ID查找相册, 如果没有找到, 返回, 并报告错误
@@ -97,6 +101,7 @@ public class PhotoInsertController extends BaseUserController {
 			return mv;
 		} else
 			return StateUtils.setUnknowError(mv);
+		
 		
 	}
 
