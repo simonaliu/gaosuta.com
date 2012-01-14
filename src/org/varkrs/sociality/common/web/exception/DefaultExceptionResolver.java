@@ -13,7 +13,8 @@ public class DefaultExceptionResolver implements HandlerExceptionResolver {
 	@Override
 	public ModelAndView resolveException(HttpServletRequest request,
 			HttpServletResponse response, Object handler, Exception e) {
-		ModelAndView mv = new ModelAndView("json-view");
+		
+		ModelAndView mv = new ModelAndView("json-but-text-view");
 		String state = "state";
 		
 		if(e instanceof HttpSessionRequiredException) {
